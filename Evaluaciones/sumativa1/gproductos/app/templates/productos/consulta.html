@@ -1,18 +1,34 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Productos Registrados</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Productos Registrados</h1>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-    <h1>Consultas</h1>
-    <a href={% url 'index'%}>Inicio</a> 
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Fecha de Vencimiento</th>
+            </tr>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.codigo }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.marca }}</td>
+                <td>{{ producto.fecha_vencimiento }}</td>
+            </tr>
+            {% endfor %}
+        </table>
 
-    
-    </body>
+        <p><a href="{% url 'index' %}">Volver al inicio</a></p>
+    </div>
+</body>
 </html>

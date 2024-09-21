@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Inicio</h1>
-    
-        <a href= {% url 'registro' %}>Registro de productos</a>
-        <a href= {% url 'consulta'%}>Consultas</a>
-        <a href={% url 'resultado'%}>Resultados de la búsqueda</a>
-        
-        <script src="" async defer></script>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Gestión de Productos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la Gestión de Productos</h1>
+
+        <p>
+            <a href="{% url 'registro' %}">Registro de productos</a>
+            <a href="{% url 'consulta' %}">Consulta de productos</a>
+            <a href="{% url 'resultado' %}">Último producto registrado</a>
+        </p>
+    </div>
+</body>
 </html>

@@ -1,17 +1,29 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado del Registro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Producto registrado con éxito</h1>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Resultados de la búsqueda</h1>
-        <a href={% url 'index'%}>Inicio</a> 
-        <script src="" async defer></script>
-    </body>
+        {% if producto %}
+            <p><strong>Código:</strong> {{ producto.codigo }}</p>
+            <p><strong>Nombre:</strong> {{ producto.nombre }}</p>
+            <p><strong>Marca:</strong> {{ producto.marca }}</p>
+            <p><strong>Fecha de Vencimiento:</strong> {{ producto.fecha_vencimiento }}</p>
+        {% else %}
+            <p>No se ha registrado ningún producto.</p>
+        {% endif %}
+
+        <p>
+            <a href="{% url 'consulta' %}">Ver todos los productos registrados</a>
+            <a href="{% url 'index' %}">Volver al inicio</a>
+        </p>
+    </div>
+</body>
 </html>
