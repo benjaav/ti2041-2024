@@ -5,30 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Productos</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
 </head>
 <body>
     <div class="container">
         <h1>Registro de Productos</h1>
 
-        <!-- Mostrar mensaje de error si existe -->
-        {% if error %}
-            <p style="color: red;">{{ error }}</p>
-        {% endif %}
-
+        <!-- Formulario para registrar el producto -->
         <form method="POST">
             {% csrf_token %}
-            <label for="codigo">Código:</label>
-            <input type="text" name="codigo" required>
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" required>
-
-            <label for="marca">Marca:</label>
-            <input type="text" name="marca" required>
-
-            <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
-            <input type="date" name="fecha_vencimiento" required>
+            {{ form.as_p }} 
 
             <input type="submit" value="Registrar Producto">
         </form>

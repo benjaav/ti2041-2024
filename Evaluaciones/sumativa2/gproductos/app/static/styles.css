@@ -65,14 +65,46 @@ label {
     font-weight: bold;
 }
 
-input[type="text"], input[type="date"] {
-    width: 100%;
+/* Estilo para el contenedor del formulario */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+form label {
+    flex-basis: 100%;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Para los inputs de texto y selects, ajusta el ancho */
+form input[type="text"], form input[type="number"], form input[type="date"], form select {
+    flex-basis: 48%;
     padding: 10px;
     margin-top: 5px;
-    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    form input[type="text"], form input[type="number"], form input[type="date"], form select {
+        flex-basis: 100%;
+    }
 }
 
 table {
