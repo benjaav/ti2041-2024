@@ -14,7 +14,6 @@ Este proyecto es una aplicación web desarrollada con Django para gestionar prod
 
 - **Python 3.11+**
 - **Django 4.x**
-- **Bootstrap (opcional, si estás utilizando alguna CDN de Bootstrap)**
 
 ## Instalación
 
