@@ -91,7 +91,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -107,12 +106,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Asegúrate de tener STATICFILES_DIRS configurado si tienes una estructura específica
 STATICFILES_DIRS = [
-    BASE_DIR / "app" / "static",  # Asegúrate de que la ruta sea correcta
+    BASE_DIR / "app" / "static",  
 ]
 
-# Configura STATIC_ROOT para producción si es necesario
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
@@ -120,7 +118,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 

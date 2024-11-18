@@ -9,8 +9,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido a la Gestión de Productos</h1>
+        {% if user.is_authenticated %}
+            
+            <div class="logout-container">
+                <a href="{% url 'logout' %}" class="btn logout-btn">Cerrar sesión</a>
+            </div>
+        {% endif %}
 
+        <h1>Bienvenido a la Gestión de Productos</h1>
+        
         {% if user.is_authenticated %}
             <p>¡Hola, {{ user.username }}!</p>
             <div class="button-group">

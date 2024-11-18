@@ -1,110 +1,65 @@
-/* General styles */
+/* General */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #121212;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
     box-sizing: border-box;
+    color: #ffffff;
+}
+
+.container {
+    text-align: center;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    padding: 20px 40px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px 0;
 }
 
 h1 {
-    color: #333;
-    text-align: center;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
 p {
-    text-align: center;
+    color: #b3b3b3;
     margin-bottom: 20px;
 }
 
-/* Container styles */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Link and button styles */
-a, button {
-    display: inline-block;
+/* Botones */
+button, input[type="submit"], a.button {
+    background-color: #007bff;
+    border: none;
+    color: white;
     padding: 10px 20px;
     font-size: 16px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
     margin: 10px 5px;
     border-radius: 5px;
-    color: #fff;
-    background-color: #007bff;
-    text-decoration: none;
-    border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-a:hover, button:hover {
+button:hover, input[type="submit"]:hover, a.button:hover {
     background-color: #0056b3;
 }
 
-/* Submit button styles */
-input[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+/* Asegurar que los enlaces no pierdan el estilo de botón */
+a.button {
+    display: inline-block;
 }
 
-input[type="submit"]:hover {
-    background-color: #218838;
-}
 
-/* Label styles */
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* Form layout styles */
-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-form label {
-    flex-basis: 100%;
-}
-
-/* Input and select styles */
-form input[type="text"],
-form input[type="number"],
-form input[type="date"],
-form select {
-    flex-basis: 48%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    form input[type="text"],
-    form input[type="number"],
-    form input[type="date"],
-    form select {
-        flex-basis: 100%;
-    }
-}
-
-/* Table styles */
+/* Tablas */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -112,29 +67,48 @@ table {
 }
 
 th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
     text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #333;
+    background-color: #333333;
+    color: #ffffff;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+td {
+    background-color: #1c1c1c;
+    color: #ffffff;
 }
 
-tr:hover {
-    background-color: #f1f1f1;
+/* Filtros y Formularios */
+.filter-container, .form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-/* Footer styles */
-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #888;
-    font-size: 0.9em;
+select, input[type="text"], input[type="number"] {
+    padding: 8px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: white;
+    width: 100%;
+    max-width: 200px;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+label {
+    color: #ffffff;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
 }

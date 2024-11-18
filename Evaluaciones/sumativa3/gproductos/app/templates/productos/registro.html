@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Registro de Productos</h1>
 
-        <!-- Formulario para registrar el producto -->
+        
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }} 
@@ -20,7 +20,7 @@
             <input type="submit" value="Registrar Producto">
         </form>
 
-        <p><a href="{% url 'index' %}">Volver al inicio</a></p>
+        <p><a href="{% url 'index' %}"class="btn">Volver al inicio</a></p>
     </div>
 </body>
 </html>

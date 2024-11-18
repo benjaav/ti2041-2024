@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Producto, Marca, Categoria
 from .forms import ProductoForm
 
-
+def is_admin(user):
+    return user.is_superuser
 # Vista para el login
 def login_user(request):
     if request.method == 'POST':
@@ -17,9 +19,13 @@ def login_user(request):
             return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos.')
-    return render(request, 'productos/login.html')  # Asegúrate de crear este template en productos/
+    return render(request, 'productos/login.html')  
 
-# Vista para la página de inicio
+def logout_user(request):
+    logout(request)
+    return redirect('login')
+
+
 @login_required
 def index(request):
     return render(request, 'index.html')
@@ -36,7 +42,9 @@ def registrar_producto(request):
     
     return render(request, 'productos/registro.html', {'form': form})
 
+
 @login_required
+@user_passes_test(is_admin)
 def resultado_producto(request):
     # Obtener el último producto registrado para mostrarlo en la página de resultado
     producto = Producto.objects.last()

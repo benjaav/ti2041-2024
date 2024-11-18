@@ -6,24 +6,31 @@
     <title>Iniciar Sesión</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-
-
 </head>
 <body>
     <div class="container">
         <h1>Iniciar Sesión</h1>
         <form method="post">
             {% csrf_token %}
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
             
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
             
-            <input type="submit" value="Iniciar Sesión">
+            <div class="form-group">
+                <input type="submit" value="Iniciar Sesión">
+            </div>
         </form>
+
+        
         {% if messages %}
-            <ul>
+            <ul class="messages">
                 {% for message in messages %}
                     <li>{{ message }}</li>
                 {% endfor %}
