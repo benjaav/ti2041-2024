@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productos</title>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Productos</h1>
+
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }} 
+
+            <input type="submit" value="Registrar Producto">
+        </form>
+
+        <p><a href="{% url 'index' %}"class="btn">Volver al inicio</a></p>
+    </div>
+</body>
+</html>

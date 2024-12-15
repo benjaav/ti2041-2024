@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Productos Registrados</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Productos Registrados</h1>
+
+        
+        <form method="GET" action=".">
+            <label for="marca">Filtrar por Marca:</label>
+            <select name="marca" id="marca">
+                <option value="">Todas</option>
+                {% for marca in marcas %}
+                    <option value="{{ marca.id }}" {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>{{ marca.nombre }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="categoria">Filtrar por Categoría:</label>
+            <select name="categoria" id="categoria">
+                <option value="">Todas</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria.id }}" {% if request.GET.categoria == categoria.id|stringformat:"s" %}selected{% endif %}>{{ categoria.nombre }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Filtrar">
+        </form>
+
+       
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Categoría</th>
+                <th>Tamaño</th>
+                <th>Precio ($)</th> 
+            </tr>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.codigo }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.marca.nombre }}</td>
+                <td>{{ producto.categoria.nombre }}</td>
+                <td>{{ producto.tamaño }}</td>
+                <td>{{ producto.precio }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <p><a href="{% url 'index' %}" class="btn">Volver al inicio</a></p>
+    </div>
+</body>
+</html>

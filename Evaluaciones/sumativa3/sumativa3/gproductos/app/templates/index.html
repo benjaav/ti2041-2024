@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Gestión de Productos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la Gestión de Productos</h1>
+
+        {% if user.is_authenticated %}
+            <p>¡Hola, {{ user.username }}!</p>
+            <div class="button-group">
+                <a href="{% url 'registro' %}" class="btn">Registro de productos</a>
+                <a href="{% url 'consulta' %}" class="btn">Consulta de productos</a>
+                <a href="{% url 'resultado' %}" class="btn">Último producto registrado</a>
+            </div>
+        {% else %}
+            <p>Por favor, <a href="{% url 'login' %}">inicia sesión</a> para acceder a las funciones.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
